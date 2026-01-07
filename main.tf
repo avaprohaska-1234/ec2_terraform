@@ -59,9 +59,10 @@ resource "aws_route_table" "public_rt" {
 
 #add ec2 instance
 resource "aws_instance" "ec2_tf" {
-  ami           = var.ami_id
-  instance_type = "t3.micro"
-  #subnet_id = aws.subnet.
+  ami                    = var.ami_id
+  instance_type          = "t3.micro"
+  subnet_id              = "subnet-014c7fe4c09bf5c3d"
+  vpc_security_group_ids = ["sg-0695821550184e625"]
 
   tags = {
     Name = "ec2_tf"
